@@ -1,11 +1,11 @@
 import NavBar from "../components/NavBar";
-import AllProduct from "../components/AllProduct";
+import ProductAll from "../components/Products/ProductAll"
 
 export default function Home() {
     return (
         <>
         <NavBar />
-        <AllProduct />
+        <ProductAll />
         </>
     );
 }
