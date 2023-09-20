@@ -1,6 +1,6 @@
 
 
-export default function Cart() {
+export default function AllProduct() {
     return (
         <>
         </>

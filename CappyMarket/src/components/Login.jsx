@@ -3,11 +3,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
+
 export default function Login() {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
-    
+    const [error, setError] = useState('');
     const navigate = useNavigate();
+    
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -15,17 +17,13 @@ export default function Login() {
         try {
             const response = await userLogin(username, password);
             console.log(response);
-      
             navigate("/");
           } catch (error) {
             console.error("Error", error);
-            setError("Login error");
+            setError("Unable to login. Please try again.");
           }
         }
-        async function openSignUpForm(e) {
-          e.preventDefault();
-          navigate("/Signup");
-        }
+
         return (
         <>
             <div>
