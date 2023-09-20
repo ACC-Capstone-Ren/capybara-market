@@ -4,8 +4,6 @@ import { fetchProductById } from "../../API/Product";
 
 export default function ProductSingle(){
     const [product,setProduct] = useState({});
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null)
 
     const{id} = useParams()
     const navigate = useNavigate();
