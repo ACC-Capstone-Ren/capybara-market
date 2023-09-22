@@ -13,9 +13,10 @@ export default function SignUp() {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        
         try {
-          if (password === confirmPassword) {
-            const newUser = await addUser(username, email, password);
+            if (password === confirmPassword) {
+              const newUser = await addUser(username, email, password);
             if (newUser) {
               navigate("/login");
             }
@@ -23,35 +24,44 @@ export default function SignUp() {
             setCheckPassword(false);
           }
         } catch (error) {
-          console.error(`Error occured when adding a new user. `, error);
+          console.error(`Error occured.`, error);
         }
       }
 
     return (
-            <div>
+          <div>
                 <div className="title">
-                    <h1>Create an Account</h1>
+                    <h1>Sign Up</h1>
                 </div>
 
                 <div className="signUpForm">
                     <form onSubmit={handleSubmit}>
+                        
                         <div className="userInfo">
                             <label>Username</label>
                                 <input type="text" onChange={(e) => {setUsername(e.target.value)}}/>
+                        </div>
 
+                        <div className="userInfo">
                             <label>Email</label>
                                 <input type="text" onChange={(e) => {setEmail(e.target.value)}}/>
-                                
+                        </div>
+
+                        <div className="userInfo">
                             <label>Password</label>
                                 <input type="text" onChange={(e) => {setPassword(e.target.value)}}/>
+                        </div>
 
+                        <div>
                             <label>Retype New Password</label>
                                 <input type="text" onChange={(e) => {setConfirmPassword(e.target.value)}}/>
-                            
-                            <button>Submit</button>
+                              <div>
+                                <button>Submit</button>
+                              </div>
                         </div>
                     </form>
-                </div>
+                  </div>
             </div>
-    );
+         );
+         
 }

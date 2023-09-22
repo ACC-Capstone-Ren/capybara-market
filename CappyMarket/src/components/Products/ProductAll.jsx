@@ -4,7 +4,7 @@ import { fetchAllProducts } from "../../API/Product";
 
 export default function ProductList(){
     const [products,setProducts] = useState([]);
-    const [username, setUsername] = useState('')
+// const [username, setUsername] = useState('')
     const [search, setSearch] = useState('')
     const [cart, setCart] = useState([])
 
@@ -23,19 +23,19 @@ useEffect(() => {
 
 
 // storing username
-    useEffect(()=>{
-        const storeUsername = sessionStorage.getItem('username');
-        if(storeUsername){
-            setUsername(storeUsername)
-        }
-    },[])
+    // useEffect(()=>{
+    //     const storeUsername = sessionStorage.getItem('username');
+    //     if(storeUsername){
+    //         setUsername(storeUsername)
+    //     }
+    // },[])
 
 
 // search
     const filterProducts = search ? products.filter((product)=>
     product.title.toLowerCase().includes(search.toLowerCase())):products;
 
-/// Pause to create Product Single ///
+
 
 // add item to cart handler
     async function addToCartHandler(product){
