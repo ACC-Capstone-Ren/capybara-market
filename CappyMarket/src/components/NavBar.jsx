@@ -14,6 +14,9 @@ export default function NavBar() {
                 <li>
                     <Link to="/Cart">Cart</Link>
                 </li>
+                <li>
+                    <Link to="/CheckOut">Checkout</Link>
+                </li>
             </ul>
         </nav>
  );

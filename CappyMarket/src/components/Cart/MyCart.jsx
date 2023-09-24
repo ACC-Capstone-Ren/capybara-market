@@ -41,9 +41,9 @@ export default function MyCart(){
                 }): (
                     <p>Empty cart</p>
                 )}
-
+                  <button onClick={() =>{navigate('/CheckOut')}}>Checkout Cart</button>
+                  <br/>
                   <button onClick={() =>{navigate('/')}}>Back</button>
-                  {/* Add checkout button here */}
         </div>
         
     </>
