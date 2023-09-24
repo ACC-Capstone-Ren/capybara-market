@@ -4,7 +4,6 @@ import { fetchAllProducts } from "../../API/Product";
 
 export default function ProductList(){
     const [products,setProducts] = useState([]);
-// const [username, setUsername] = useState('')
     const [search, setSearch] = useState('')
     const [cart, setCart] = useState([])
 
@@ -22,19 +21,9 @@ useEffect(() => {
   }, []);
 
 
-// storing username
-    // useEffect(()=>{
-    //     const storeUsername = sessionStorage.getItem('username');
-    //     if(storeUsername){
-    //         setUsername(storeUsername)
-    //     }
-    // },[])
-
-
 // search
     const filterProducts = search ? products.filter((product)=>
     product.title.toLowerCase().includes(search.toLowerCase())):products;
-
 
 
 // add item to cart handler
@@ -74,8 +63,8 @@ useEffect(() => {
 return(
     <div className="app">
         <div className="search-box">
-            <label htmlFor="search">
-                Search: <input type="text" placeholder="Search" value={search} onChange={(e) => {setSearch(e.target.value)}} />
+            <label html="search">
+                Search: <input type="text" name="search" placeholder=" ... Jacket" id={search} onChange={(e) => {setSearch(e.target.value)}} />
             </label>
         </div>
             <div className="product-list">

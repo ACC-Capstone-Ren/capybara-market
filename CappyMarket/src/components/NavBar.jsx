@@ -14,9 +14,6 @@ export default function NavBar() {
                 <li>
                     <Link to="/Cart">Cart</Link>
                 </li>
-                <li>
-                    <Link to="/Logout">Logout</Link>
-                </li>
             </ul>
         </nav>
  );

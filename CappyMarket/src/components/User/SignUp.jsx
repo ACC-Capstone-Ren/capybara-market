@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { addUser } from "../../API/user"
+import { fetchAllUsers } from "../../API/user"
 import { useState } from "react"
 
 export default function SignUp() {
@@ -16,12 +16,13 @@ export default function SignUp() {
         
         try {
             if (password === confirmPassword) {
-              const newUser = await addUser(username, email, password);
+              const newUser = await fetchAllUsers(username, email, password)
             if (newUser) {
-              navigate("/login");
+              navigate("/Profile");
             }
           } else {
             setCheckPassword(false);
+            console.log("Password doesn't match.");
           }
         } catch (error) {
           console.error(`Error occured.`, error);

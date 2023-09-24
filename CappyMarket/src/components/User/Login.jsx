@@ -13,6 +13,7 @@ export default function Login() {
     async function handleSubmit(event) {
         event.preventDefault();
 
+
         try {
             const response = await userLogin(username, password);
             console.log(response);
@@ -35,7 +36,9 @@ return (
         <>
             <div className="loginSignUp">
                 <div className="loginCase">
-                    <div className="title"> <h2>Login</h2> </div>
+                    <div className="title"> 
+                        <h2>Login</h2> 
+                    </div>
                     <div className="loginContents">
                         <form onSubmit={handleSubmit} className="loginForm">
                             <div className="formItem">
@@ -48,7 +51,6 @@ return (
                                     <input type="password" className="password" onChange={(e) => { setPassword(e.target.value); }} />
                                 </label>
                             </div>
-                        
                             <button type="submit">Submit</button>
                         </form>
                     </div>
@@ -59,7 +61,7 @@ return (
                     <div className="title">
                         <h2>Create an Account </h2>
                     </div>
-                    <div className="joinArea">
+                    <div className="join">
                         <button onClick={openSignUpForm}>Join Here</button>
                     </div>
                 </div>
