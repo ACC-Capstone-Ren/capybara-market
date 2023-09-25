@@ -58,6 +58,8 @@ export default function SignUp() {
                                 <input type="text" onChange={(e) => {setConfirmPassword(e.target.value)}}/>
                               <div>
                                 <button>Submit</button>
+                                <br/>
+                                <button onClick={() =>{navigate('/')}}>Back</button>
                               </div>
                         </div>
                     </form>

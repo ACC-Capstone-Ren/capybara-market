@@ -53,6 +53,7 @@ return (
                             </div>
                             <button type="submit">Submit</button>
                         </form>
+                        <button onClick={() =>{navigate('/')}}>Back</button>
                     </div>
                     {error && <p>{error}</p>}
                 </div>
@@ -63,6 +64,7 @@ return (
                     </div>
                     <div className="join">
                         <button onClick={openSignUpForm}>Join Here</button>
+                        
                     </div>
                 </div>
             </div>
