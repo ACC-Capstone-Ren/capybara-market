@@ -8,7 +8,7 @@ export default function ProductSingle(){
     const{id} = useParams()
     const navigate = useNavigate();
 
-// getting single product
+
 useEffect(() => {
     const fetchProduct = async () => {
         const productData = await fetchProductById(id);
@@ -16,7 +16,7 @@ useEffect(() => {
     }; fetchProduct();
   }, [id]);
 
-//Only show if above fails to load
+
         if (!product) {
             return <div>Loading...</div>;
         }

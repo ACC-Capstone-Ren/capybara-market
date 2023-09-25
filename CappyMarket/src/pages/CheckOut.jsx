@@ -32,7 +32,8 @@ export default function Checkout() {
       setErrorMessage('Payment');
       setSuccessMessage('');
     }
-     localStorage.removeItem("cart");
+     localStorage.removeItem("MyCart");
+     console.log("Purchase Complete")
   };
 
 
