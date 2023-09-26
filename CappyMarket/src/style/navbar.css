@@ -1,14 +1,8 @@
 
 .NavBar {
-    background: rgb(161, 232, 175);
-    background: linear-gradient(
-      86deg,
-      rgba(161, 232, 175, 1) 0%,
-      rgba(148, 197, 149, 1) 23%,
-      rgba(116, 124, 146, 1) 51%,
-      rgba(55, 39, 114, 1) 78%,
-      rgba(58, 36, 73, 1) 100%
-    );
+    background-color: #8EC5FC;
+    background-image: linear-gradient(175deg, #8EC5FC 9%, #E0C3FC 57%);
+    
 
     position: fixed;
     top: 0;
