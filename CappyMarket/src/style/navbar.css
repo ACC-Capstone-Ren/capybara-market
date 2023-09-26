@@ -1,0 +1,39 @@
+
+.NavBar {
+    background: rgb(161, 232, 175);
+    background: linear-gradient(
+      86deg,
+      rgba(161, 232, 175, 1) 0%,
+      rgba(148, 197, 149, 1) 23%,
+      rgba(116, 124, 146, 1) 51%,
+      rgba(55, 39, 114, 1) 78%,
+      rgba(58, 36, 73, 1) 100%
+    );
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 25px 0 black;
+  }
+
+.NavBar * {
+    display: inline;
+}
+
+.NavBar li {
+    margin: 20px;
+}
+
+.NavBar li a {
+    color: black;
+    text-decoration: none;
+}
+
+h2 {
+    color: black;
+    margin-left: 9px;
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { fetchAllProducts } from "../../API/Product";
+import '../../style/productsAll.css';
 
 export default function ProductList(){
     const [products,setProducts] = useState([]);
@@ -16,6 +17,7 @@ useEffect(() => {
     };
         fetchData();
   }, []);
+
 
 
 const filterProducts = search ? products.filter((product)=> product.title.toLowerCase().includes(search.toLowerCase())): products;
@@ -37,16 +39,16 @@ function addToCart(product){
 
 
 return(
-    <div className="app">
+    <div>
         <div className="search">
             <label html="search">
                 Search: <input type="text" name="search" placeholder=" ... Jacket" id={search} onChange={(e) => {setSearch(e.target.value)}} />
             </label>
         </div>
-            <div className="productList">
+            <div className="products">
                 {filterProducts ? filterProducts.map(product => {
                     return (
-                        <div className="product" key={product.id}>
+                        <div key={product.id} className="product" >
                             <h4>{product.title}</h4>
                             <img src={product.image} width="50px" height="50px" />
                             <p>Price: ${product.price}</p>
