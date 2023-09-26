@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar"
 
 export default function Checkout() {
   const [personalInfo, setPersonalInfo] = useState({ firstName: '', lastName: '', email: '' });
@@ -44,6 +45,7 @@ export default function Checkout() {
 
   return (
     <div className="userDetails">
+      <NavBar />
       <h1>Checkout</h1>
       {errorMessage && <div>{errorMessage}</div>}
       {successMessage && <div>{successMessage}</div>}
