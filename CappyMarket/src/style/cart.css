@@ -26,3 +26,15 @@
 .total {
     font-size: 25px;
   }
+
+.btnDecrease, .btnIncrease {
+    width: 30px;
+    height: 25px;
+}
+
+.btnDelete {
+    width: 100px;
+    height: 25px;
+    margin-left: -2px;
+    margin-right: -9px;
+}

@@ -108,9 +108,9 @@ export default function Cart(){
                         <img src={cartItem.image} alt={cartItem.title} width="50px" height="50px" />
                         <p>Price: ${cartItem.price}</p>
                         <p>Quantity: {cartItem.quantity}</p>
-                        <button onClick={()=>decreaseQuantity(cartItem.id)}>-</button>
-                        <button onClick={()=>deleteCartHandler(cartItem.id)}>Remove Item</button>
-                        <button onClick={()=>increaseQuantity(cartItem.id)}>+</button>
+                        <button className="btnDecrease" onClick={()=>decreaseQuantity(cartItem.id)}>-</button>
+                        <button className="btnDelete" onClick={()=>deleteCartHandler(cartItem.id)}>Remove Item</button>
+                        <button className="btnIncrease" onClick={()=>increaseQuantity(cartItem.id)}>+</button>
                     </div>
                 </div>
             ))}
