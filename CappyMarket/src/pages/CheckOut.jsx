@@ -119,7 +119,7 @@ export default function Checkout() {
         </div>
         <button onClick={handleCheckout}> Place Order </button>
         <br/>
-        <button onClick={() =>{navigate('/')}}>Back</button>
+        <button onClick={() =>{navigate('/Cart')}}>Back</button>
       </form>
     </div>
   );
