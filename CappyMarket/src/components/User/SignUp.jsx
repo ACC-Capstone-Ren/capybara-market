@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { fetchAllUsers } from "../../API/user"
 import { useState } from "react"
 import '../../style/signUp.css'
+import NavBar from "../NavBar"
 
 export default function SignUp() {
     const [email, setEmail] = useState('')
@@ -32,6 +33,7 @@ export default function SignUp() {
 
     return (
           <div>
+            <NavBar /> 
                 <div className="title">
                     <h4>Sign Up</h4>
                 </div>
@@ -57,6 +59,8 @@ export default function SignUp() {
                     </form>
                   </div>
             </div>
+        
          );
+         
          
 }
