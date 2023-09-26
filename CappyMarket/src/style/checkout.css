@@ -1,0 +1,23 @@
+.checkoutWhole {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkoutData {
+    margin-left: 15px;
+}
+
+.checkoutContents {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 15px;
+    border: 1px solid skyblue;
+    border-radius: 5px;
+}
+
+.btnCheckOut {
+    margin-left: 22px;
+}

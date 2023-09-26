@@ -7,6 +7,7 @@ import Cart from './pages/Cart';
 import ProductSingle from './components/Products/ProductSingle';
 import ProductAll from './components/Products/ProductAll'
 import CheckOut from './pages/CheckOut';
+import PaymentSuccess from './pages/PaymentSuccess';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/CheckOut" element={<CheckOut />} />
             <Route path="/ProductSingle/:id" element={<ProductSingle />} />
             <Route path="/ProductAll" element={<ProductAll />} />
+            <Route path="/PaymentSuccess" element={<PaymentSuccess />} />
           </Routes>
         </div>
       </Router>

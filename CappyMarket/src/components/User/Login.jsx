@@ -38,25 +38,22 @@ return (
             <div className="loginSignUp">
                 <div className="loginCase">
                     <div className="title"> 
-                        <h4 id="login">Login</h4> 
+                        <h4 className="subTitle">Login</h4> 
                     </div>
                     <div className="loginContents">
                         <form onSubmit={handleSubmit} className="loginForm">
                             <div className="formItem">
-                                <label>
                                     <input type="text" placeholder="Username" name="usernameTextBox" className="username" onChange={(e) => {setUsername(e.target.value); }} />
-                                </label>
                             </div>
+                            
                             <div className="formItem">
-                                <label>
                                     <input type="password" placeholder="Password" name="passwordTextBox" className="password" onChange={(e) => { setPassword(e.target.value); }} />
-                                </label>
                             </div>
                             <button className="btnSubmit" type="submit">Submit</button>
                             <button className="bkHome" type="backHome" onClick={() =>{navigate('/')}}>Go Back</button>
                             <div className="signUp2">
                                 <div className="title">
-                                    <h4 id="login">Create an Account </h4>
+                                    <h4 className="subTitle">Create an Account </h4>
                                 </div>
                                 <div className="join">
                                     <button className="btnSignUp" type="signUp" onClick={openSignUpForm}>Join Here</button>

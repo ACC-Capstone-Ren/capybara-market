@@ -1,128 +1,155 @@
-import { useState } from 'react';
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../components/NavBar"
+import '../style/checkout.css';
+import NavBar from '../components/NavBar';
 
-export default function Checkout() {
-  const [personalInfo, setPersonalInfo] = useState({ firstName: '', lastName: '', email: '' });
-  const [shippingAddress, setShippingAddress] = useState({ streetAddress: '', city: '', postalCode: '', country: '' });
-  const [paymentInfo, setPaymentInfo] = useState({ cardNumber: '', cardHolder: '', expirationDate: '', cvv: '' });
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+export default function CheckOut() {
+  const navigate = useNavigate();
+  const [paymentInfo, setPaymentInfo] = useState({ 
+    firstName: "",
+    lastName: "",
+    emailAddress: "",
+    streetAddress: "",
+    city: "",
+    zipCode: "",
+    country: "",
+    cardHolder: "",
+    cardNumber: "", 
+    expiryDate: "", 
+    cvv: "" });
 
-  const navigate = useNavigate()
-
-  const handleInputChange = (e, stateSetter) => {
-      const {name, value} = e.target;
-      stateSetter({
-          [name]: value,
-      });
+  const handlePayment = (e) => {
+    e.preventDefault();
+    setTimeout(() => { navigate("/PaymentSuccess"); }, 1200); 
   };
 
-  const handleCheckout = async () => {
-    try {
-      await simulatePayment();
-      setPersonalInfo({ firstName: '',  lastName: '', email: '' });
-      setShippingAddress({ streetAddress: '', city: '', postalCode: '', country: '' });
-      setPaymentInfo({ cardNumber: '', cardHolder: '', expirationDate: '', cvv: '' });
-
-
-      setSuccessMessage('Payment successful.');
-      setErrorMessage('');
-    } catch (error) {
-      console.error('Error:', error);
-      setErrorMessage('Payment');
-      setSuccessMessage('');
-    }
-     localStorage.removeItem("MyCart");
-     console.log("Purchase Complete")
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPaymentInfo((prevState) => ({ ...prevState, [name]: value, }));
   };
 
-
-    const simulatePayment = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    return Promise.resolve();
-  };
 
   return (
-    <div className="userDetails">
-      <NavBar />
-      <h1>Checkout</h1>
-      {errorMessage && <div>{errorMessage}</div>}
-      {successMessage && <div>{successMessage}</div>}
-      <form>
-        <h2>Personal Information</h2>
-        <div>
-          <div>
+       <>
+        <div className="checkoutWhole">
+          <div className="checkoutContents">
+            <h4 className="subTitle">Personal Information</h4>
+            <form onSubmit={handlePayment} className="checkoutForm">
             <div>
-              <label> First Name </label>
-                 <input type="text" name="firstName" value={personalInfo.firstName} onChange={(e) => handleInputChange(e, setPersonalInfo)} />
+              <input 
+                type="text"
+                name="firstName"
+                className="checkoutData"
+                placeholder="First Name"
+                value={paymentInfo.firstName}
+                onChange={handleChange}
+              />
             </div>
-          </div>
-          <div>
             <div>
-              <label> Last Name </label>
-                 <input type="text" name="lastName" value={personalInfo.lastName} onChange={(e) => handleInputChange(e, setPersonalInfo)} />
+              <input 
+                type="text"
+                name="lastName"
+                className="checkoutData"
+                placeholder="Last Name"
+                value={paymentInfo.lastName}
+                onChange={handleChange}
+              />
             </div>
+            <div>
+              <input 
+                type="email" 
+                name="emailAddress" 
+                className="checkoutData"
+                placeholder="Email Address"
+                value={paymentInfo.emailAddress}
+                onChange={handleChange}
+              />
+            </div>
+            
+            <h4 className="subTitle">Sending To</h4>
+            <div>
+              <input 
+                type="text" 
+                name="streetAddress"
+                className="checkoutData"
+                placeholder="Street Address"
+                value={paymentInfo.streetAddress}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <input 
+                type="text" name="city"
+                className="checkoutData"
+                placeholder="City"
+                value={paymentInfo.city}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <input 
+                type="text" name="zipCode"
+                className="checkoutData"
+                placeholder="Zip Code"
+                value={paymentInfo.zipCode}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <input 
+                type="text" name="country"
+                className="checkoutData"
+                placeholder="Country"
+                value={paymentInfo.country}
+                onChange={handleChange}
+              />
+            </div>
+            <h4 className="subTitle">Payment Information</h4>
+            <div>
+                <input
+                  type="text"
+                  name="cardHolder"
+                  className="checkoutData"
+                  placeholder="Card Holders Full Name"
+                  value={paymentInfo.cardHolder}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="cardNumber"
+                  className="checkoutData"
+                  placeholder="Card Number"
+                  value={paymentInfo.cardNumber}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="expiryDate"
+                  className="checkoutData"
+                  placeholder="Expire Date"
+                  value={paymentInfo.expiryDate}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="cvv"
+                  className="checkoutData"
+                  placeholder="CVV"
+                  value={paymentInfo.cvv}
+                  onChange={handleChange}
+                />
+              </div>
+              <button type="submit" className="btnCheckOut">Submit</button>
+            </form>
           </div>
         </div>
-        <div>
-          <label> Email Address </label>
-            <input type="email" name="email" value={personalInfo.email} onChange={(e) => handleInputChange(e, setPersonalInfo)} />
-        </div>
-        <h2>Shipping Address</h2>
-        <div>
-          <div>
-            <div>
-              <label> Street Address </label>
-                <input type="text" name="streetAddress" value={shippingAddress.streetAddress} onChange={(e) => handleInputChange(e, setShippingAddress)} />
-            </div>
-          </div>
-          <div>
-            <div>
-              <label> City </label>
-                <input type="text" name="city" value={shippingAddress.city} onChange={(e) => handleInputChange(e, setShippingAddress)} />
-            </div>
-          </div>
-          <div>
-            <div>
-              <label> Postal Code </label>
-                <input type="text" name="postalCode" value={shippingAddress.postalCode} onChange={(e) => handleInputChange(e, setShippingAddress)} />
-            </div>
-          </div>
-          <div>
-            <div>
-              <label> Country </label>
-                <input type="text" name="country" value={shippingAddress.country} onChange={(e) => handleInputChange(e, setShippingAddress)} />
-            </div>
-          </div>
-        </div>
-        <h2>Payment Information</h2>
-        <div>
-          <label> Card Number </label>
-          <input type="text" name="cardNumber" value={paymentInfo.cardNumber} onChange={(e) => handleInputChange(e, setPaymentInfo)} />
-        </div>
-        <div>
-          <label> Card Holder </label>
-          <input type="text" name="cardHolder" value={paymentInfo.cardHolder} onChange={(e) => handleInputChange(e, setPaymentInfo)} />
-        </div>
-        <div>
-          <div>
-            <div>
-              <label> Expiration Date </label>
-              <input type="text" name="expirationDate"value={paymentInfo.expirationDate} onChange={(e) => handleInputChange(e, setPaymentInfo)} />
-            </div>
-          </div>
-          <div>
-            <div>
-              <label> CVV </label>
-              <input type="text" name="cvv" value={paymentInfo.cvv} onChange={(e) => handleInputChange(e, setPaymentInfo)} />
-            </div>
-          </div>
-        </div>
-        <button onClick={handleCheckout}> Place Order </button>
-        <br/>
-        <button onClick={() =>{navigate('/Cart')}}>Back</button>
-      </form>
-    </div>
+    <NavBar />
+  </>
   );
 }
