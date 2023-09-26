@@ -100,7 +100,6 @@ export default function Cart(){
     return(
         <>
         <div className="userCart">
-            <h1 className="title">Cart</h1>
             {carts && carts.map((cartItem)=>(
                 <div key={cartItem.id}>
                     <div>
