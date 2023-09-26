@@ -37,8 +37,8 @@ return (
         <>
             <div className="loginSignUp">
                 <div className="loginCase">
-                    <div className="title"> 
-                        <h4 className="subTitle">Login</h4> 
+                    <div> 
+                        <h4 className="title">Login</h4> 
                     </div>
                     <div className="loginContents">
                         <form onSubmit={handleSubmit} className="loginForm">

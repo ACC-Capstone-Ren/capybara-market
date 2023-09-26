@@ -31,6 +31,7 @@ export default function CheckOut() {
 
   return (
        <>
+       <h4 className="title">Order Details</h4>
         <div className="checkoutWhole">
           <div className="checkoutContents">
             <h4 className="subTitle">Personal Information</h4>
