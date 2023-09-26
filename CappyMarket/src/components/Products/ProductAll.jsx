@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { fetchAllProducts } from "../../API/Product";
-import '../../style/productsAll.css';
+import '../../style/productAll.css';
 
 export default function ProductList(){
     const [products,setProducts] = useState([]);
@@ -53,7 +53,7 @@ return(
                             <img src={product.image} width="50px" height="50px" />
                             <p>Price: ${product.price}</p>
                             <button onClick={()=>addToCart(product)}>Add to cart</button>
-                            <button className="detail-btn" onClick={() =>{navigate(`/ProductSingle/${product.id}`)}}>See Details</button>
+                            <button onClick={() =>{navigate(`/ProductSingle/${product.id}`)}}>See Details</button>
                         </div>
                     )
                 }): null}
@@ -61,3 +61,4 @@ return(
         </div>
     )
 }
+
