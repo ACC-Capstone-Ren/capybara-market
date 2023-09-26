@@ -34,30 +34,21 @@ export default function SignUp() {
                 <div className="title">
                     <h1>Sign Up</h1>
                 </div>
-
                 <div className="signUpForm">
                     <form onSubmit={handleSubmit}>
-                        
                         <div className="userInfo">
-                            <label>Username</label>
-                                <input type="text" onChange={(e) => {setUsername(e.target.value)}}/>
+                                <input type="text" placeholder="Username" onChange={(e) => {setUsername(e.target.value)}}/>
                         </div>
-
                         <div className="userInfo">
-                            <label>Email</label>
-                                <input type="text" onChange={(e) => {setEmail(e.target.value)}}/>
+                                <input type="text" placeholder="Email" onChange={(e) => {setEmail(e.target.value)}}/>
                         </div>
-
                         <div className="userInfo">
-                            <label>Password</label>
-                                <input type="text" onChange={(e) => {setPassword(e.target.value)}}/>
+                                <input type="text" placeholder="Password" onChange={(e) => {setPassword(e.target.value)}}/>
                         </div>
-
                         <div>
-                            <label>Retype New Password</label>
-                                <input type="text" onChange={(e) => {setConfirmPassword(e.target.value)}}/>
+                                <input type="text" placeholder="Retype New Password" onChange={(e) => {setConfirmPassword(e.target.value)}}/>
                               <div>
-                                <button>Submit</button>
+                                <button>Enter</button>
                                 <br/>
                                 <button onClick={() =>{navigate('/')}}>Back</button>
                               </div>

@@ -1,0 +1,30 @@
+
+
+body {
+    align-items: center;
+    justify-content: center;
+}
+
+.loginSignUp {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login {
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.loginContents {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 15px;
+    border: 1px solid skyblue;
+    border-radius: 5px;
+    
+}
+

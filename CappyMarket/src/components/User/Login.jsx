@@ -1,6 +1,7 @@
 import { userLogin } from "../../API/user";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import '../../style/login.css'
 
 
 export default function Login() {
@@ -37,35 +38,34 @@ return (
             <div className="loginSignUp">
                 <div className="loginCase">
                     <div className="title"> 
-                        <h2>Login</h2> 
+                        <h4 id="login">Login</h4> 
                     </div>
                     <div className="loginContents">
                         <form onSubmit={handleSubmit} className="loginForm">
                             <div className="formItem">
                                 <label>
-                                    <input type="text" className="username" onChange={(e) => {setUsername(e.target.value); }} />
+                                    <input type="text" placeholder="Username" name="usernameTextBox" className="username" onChange={(e) => {setUsername(e.target.value); }} />
                                 </label>
                             </div>
                             <div className="formItem">
                                 <label>
-                                    <input type="password" className="password" onChange={(e) => { setPassword(e.target.value); }} />
+                                    <input type="password" placeholder="Password" name="passwordTextBox" className="password" onChange={(e) => { setPassword(e.target.value); }} />
                                 </label>
                             </div>
-                            <button type="submit">Submit</button>
+                            <button className="bkHome" type="backHome" onClick={() =>{navigate('/')}}>Go Back</button>
+                            <button className="btnSubmit" type="submit">Submit</button>
+                            <div className="signUp2">
+                                <div className="title">
+                                    <h4 id="login">Create an Account </h4>
+                                </div>
+                                <div className="join">
+                                    <button className="btnSignUp" type="signUp" onClick={openSignUpForm}>Join Here</button>
+                            </div>
+                        </div>
                         </form>
-                        <button onClick={() =>{navigate('/')}}>Back</button>
+
                     </div>
                     {error && <p>{error}</p>}
-                </div>
-
-                <div className="signUp2">
-                    <div className="title">
-                        <h2>Create an Account </h2>
-                    </div>
-                    <div className="join">
-                        <button onClick={openSignUpForm}>Join Here</button>
-                        
-                    </div>
                 </div>
             </div>
         </>
