@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, } from "react-router-dom"
-
+import '../../style/cart.css'
 
 export default function Cart(){
     const [carts,setCarts] = useState([]);
@@ -98,8 +98,9 @@ export default function Cart(){
 
 
     return(
+        <>
         <div className="userCart">
-            <h1>Cart</h1>
+            <h1 className="title">Cart</h1>
             {carts && carts.map((cartItem)=>(
                 <div key={cartItem.id}>
                     <div>
@@ -113,10 +114,13 @@ export default function Cart(){
                     </div>
                 </div>
             ))}
-            <p>Your Total: ${total}</p>
-            <button onClick={()=>{navigate('/CheckOut')}}>CheckOut</button>
-            <br/>
-            <button onClick={() =>{navigate('/')}}>Back</button>
+            <p className="total">Your Total: ${total}</p>
+            <div>
+                <button className="btnBack" onClick={() =>{navigate('/')}}>Back</button>
+                <button className="btnCheck" onClick={()=>{navigate('/CheckOut')}}>CheckOut</button>
+            </div>
         </div>
+
+        </>
     )
 }

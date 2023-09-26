@@ -1,0 +1,28 @@
+.title {
+    text-align: center;
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+.userCart {
+    padding-top: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+
+    padding: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.68);
+    padding: 10px;
+
+  }
+
+  .userCart img {
+    width: 155px;
+    height: 175px;
+  }
+
+.total {
+    font-size: 25px;
+  }
