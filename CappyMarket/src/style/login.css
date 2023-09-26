@@ -28,3 +28,11 @@ body {
     
 }
 
+.username, .password {
+    margin-left: 15px;
+}
+
+.bkHome, .btnSubmit, .btnSignUp {
+    margin-left: 22px;
+}
+
