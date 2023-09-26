@@ -1,0 +1,19 @@
+
+.signUpForm {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 15px;
+    border: 1px solid skyblue;
+    border-radius: 5px;
+}
+
+.title {
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.userInfo {
+    margin-left: 15px;
+}

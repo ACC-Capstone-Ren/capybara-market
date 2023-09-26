@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { fetchAllUsers } from "../../API/user"
 import { useState } from "react"
+import '../../style/signUp.css'
 
 export default function SignUp() {
     const [email, setEmail] = useState('')
@@ -32,7 +33,7 @@ export default function SignUp() {
     return (
           <div>
                 <div className="title">
-                    <h1>Sign Up</h1>
+                    <h4>Sign Up</h4>
                 </div>
                 <div className="signUpForm">
                     <form onSubmit={handleSubmit}>
@@ -45,7 +46,7 @@ export default function SignUp() {
                         <div className="userInfo">
                                 <input type="text" placeholder="Password" onChange={(e) => {setPassword(e.target.value)}}/>
                         </div>
-                        <div>
+                        <div className="userInfo">
                                 <input type="text" placeholder="Retype New Password" onChange={(e) => {setConfirmPassword(e.target.value)}}/>
                               <div>
                                 <button>Enter</button>

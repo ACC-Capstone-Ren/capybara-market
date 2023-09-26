@@ -52,8 +52,8 @@ return (
                                     <input type="password" placeholder="Password" name="passwordTextBox" className="password" onChange={(e) => { setPassword(e.target.value); }} />
                                 </label>
                             </div>
-                            <button className="bkHome" type="backHome" onClick={() =>{navigate('/')}}>Go Back</button>
                             <button className="btnSubmit" type="submit">Submit</button>
+                            <button className="bkHome" type="backHome" onClick={() =>{navigate('/')}}>Go Back</button>
                             <div className="signUp2">
                                 <div className="title">
                                     <h4 id="login">Create an Account </h4>

@@ -42,7 +42,7 @@ return(
     <div>
         <div className="search">
             <label html="search">
-                Search: <input type="text" name="search" placeholder=" ... Jacket" id={search} onChange={(e) => {setSearch(e.target.value)}} />
+                Search: <input type="text" name="search" placeholder="... Jacket, Men, Shoes, Gaming ...    " id={search} onChange={(e) => {setSearch(e.target.value)}} />
             </label>
         </div>
             <div className="products">
