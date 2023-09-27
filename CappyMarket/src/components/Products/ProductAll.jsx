@@ -9,7 +9,7 @@ export default function ProductList(){
 
     const navigate = useNavigate()
 
-
+// getting all product data from API
 useEffect(() => {
     const fetchData = async () => {
       const productsData = await fetchAllProducts();

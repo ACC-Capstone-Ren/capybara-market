@@ -53,7 +53,7 @@ export default function SignUp() {
                               <div>
                                 <button>Enter</button>
                                 <br/>
-                                <button onClick={() =>{navigate('/')}}>Back</button>
+                                <button onClick={() =>{navigate('/Profile')}}>Back</button>
                               </div>
                         </div>
                     </form>

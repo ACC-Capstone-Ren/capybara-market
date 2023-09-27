@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "chrome",
+            "name": "http://localhost:5173/Profile?usernameTextBox=mor_2314&passwordTextBox=83r5%5E_",
+            "request": "launch",
+            "url": "http://localhost:5173/Profile?usernameTextBox=mor_2314&passwordTextBox=83r5%5E_"
+        }
+    ]
+}

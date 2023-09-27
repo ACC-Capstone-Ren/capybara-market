@@ -1,71 +1,96 @@
-import { userLogin } from "../../API/user";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import '../../style/login.css'
+import "../../style/login.css";
+import { fetchAllUsers } from "../../API/user";
 
 
-export default function Login() {
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
-    const [error, setError] = useState();
 
-    const navigate = useNavigate();
-
-    async function handleSubmit(event) {
-        event.preventDefault();
-
-
-        try {
-            const response = await userLogin(username, password);
-            console.log(response);
-            localStorage.setItem("username", username);
-            localStorage.setItem("password", password);
-            localStorage.setItem("loggedIn", true);
-            navigate("/");
-          } catch (error) {
-            console.error("Error", error);
-            setError("error");
-          }
-        }
-  
-    async function openSignUpForm(e) {
-        e.preventDefault();
-        navigate("/SignUp");
-        }
-
-return (
-        <>
-            <div className="loginSignUp">
-                <div className="loginCase">
-                    <div> 
-                        <h4 className="title">Login</h4> 
-                    </div>
-                    <div className="loginContents">
-                        <form onSubmit={handleSubmit} className="loginForm">
-                            <div className="formItem">
-                                    <input type="text" placeholder="Username" name="usernameTextBox" className="username" onChange={(e) => {setUsername(e.target.value); }} />
-                            </div>
-                            
-                            <div className="formItem">
-                                    <input type="password" placeholder="Password" name="passwordTextBox" className="password" onChange={(e) => { setPassword(e.target.value); }} />
-                            </div>
-                            <button className="btnSubmit" type="submit">Submit</button>
-                            <button className="bkHome" type="backHome" onClick={() =>{navigate('/')}}>Go Back</button>
-                            <div className="signUp2">
-                                <div className="title">
-                                    <h4 className="subTitle">Create an Account </h4>
-                                </div>
-                                <div className="join">
-                                    <button className="btnSignUp" type="signUp" onClick={openSignUpForm}>Join Here</button>
-                            </div>
-                        </div>
-                        </form>
-
-                    </div>
-                    {error && <p>{error}</p>}
-                </div>
-            </div>
-        </>
-    );
-
+async function loginUser(credentials) {
+  return await fetch("https://fakestoreapi.com/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  }).then((data) => data.json());
 }
+
+const LoginForm = ({ setToken }) => {
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+  const [user, setUser] = useState();
+  const [status, setStatus] = useState();
+
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const userData = await fetchAllUsers();
+      setUser(userData);
+    };
+        fetchUser();
+  }, []);
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = await loginUser({
+      username,
+      password,
+    });
+    console.log(token);
+    if (token) {
+      localStorage.setItem("userToken",token);
+      setStatus("Login Successful")
+      console.log("Successful")
+      navigate("/");
+} else { 
+      setStatus("Login Failed.")
+      console.log("Login Failed")
+ 
+    }
+  };
+
+  async function openSignUpForm(e) {
+    e.preventDefault();
+    navigate("/SignUp");
+    }
+
+
+  return (
+    <div className="loginSignUp">
+        <div className="loginCase">
+            <div> 
+                <h4 className="title">Login</h4> 
+            </div>
+        <div className="loginContents">
+            <form onSubmit={handleSubmit} className="loginForm">
+                <div className="formItem">
+                     <input type="text" placeholder="Username" name="usernameTextBox" className="username" onChange={(e) => {setUsername(e.target.value); }} />
+                </div>
+                <div>
+                     <input type="password" placeholder="Password" name="passwordTextBox" className="password" onChange={(e) => { setPassword(e.target.value); }} />
+                </div>
+                <div>
+                     <button className="btnSubmit" type="submit">Submit</button>
+                     <button className="bkHome" type="backHome" onClick={() =>{navigate('/')}}>Go Back</button>
+                </div>
+                <div className="signUp2">
+                    <div className="title">
+                        <h4 className="subTitle">Create an Account </h4>
+                    </div>
+                    <div className="join">
+                        <button className="btnSignUp" type="signUp" onClick={openSignUpForm}>Join Here</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+
+  );
+};
+
+export default LoginForm;
