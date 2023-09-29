@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom"
-import { fetchAllUsers } from "../../API/user"
 import { useState } from "react"
 import '../../style/signUp.css'
 import NavBar from "../NavBar"
@@ -8,27 +7,36 @@ export default function SignUp() {
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [checkPassword, setCheckPassword] = useState(true);
-    
+    const [confirmPassword, setConfirmPassword] = useState('');
     const navigate = useNavigate()
 
     async function handleSubmit(e) {
         e.preventDefault();
         
-        try {
-            if (password === confirmPassword) {
-              const newUser = await fetchAllUsers(username, email, password)
-            if (newUser) {
-              navigate("/Profile");
-            }
-          } else {
-            setCheckPassword(false);
-            console.log("Password doesn't match.");
+        
+          try {
+              const response = await fetch("https://fakestoreapi.com/users", {
+                  method: "POST",
+                  headers:{
+                      "Content-Type": "application/json"
+                  },
+                  body: JSON.stringify({
+                      email: email,
+                      username: username,
+                      password:password,
+                  })
+              })
+              if(response.ok){
+                  console.log("Sign Up Completed")
+              } else {
+                  console.log("Sign Up Failed")
+              }
+              navigate('/Profile')
+          } catch(error){
+              console.error(error)
           }
-        } catch (error) {
-          console.error(`Error occured.`, error);
-        }
+      
+
       }
 
     return (

@@ -67,9 +67,11 @@ const LoginForm = ({ setToken }) => {
         <div className="loginContents">
             <form onSubmit={handleSubmit} className="loginForm">
                 <div className="formItem">
+                  <label>username: "mor_2314"</label>
                      <input type="text" placeholder="Username" name="usernameTextBox" className="username" onChange={(e) => {setUsername(e.target.value); }} />
                 </div>
                 <div>
+                  <label>password: "83r5^_"</label>
                      <input type="password" placeholder="Password" name="passwordTextBox" className="password" onChange={(e) => { setPassword(e.target.value); }} />
                 </div>
                 <div>
