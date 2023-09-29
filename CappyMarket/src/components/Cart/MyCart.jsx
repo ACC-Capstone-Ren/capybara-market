@@ -3,12 +3,27 @@ import { useNavigate, } from "react-router-dom"
 import '../../style/cart.css'
 
 export default function Cart(){
-    const [carts,setCarts] = useState([]);
+    const [carts, setCarts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error,setError] = useState(null);
     const [total, setTotal] = useState(calculateTotal(carts))
 
     const navigate = useNavigate()
+
+    const loggedIn = !!localStorage.getItem('username')
+
+    function checkoutHandler(){
+        try{
+            if(!loggedIn){
+                alert("Not Signed In. Please Signin")
+            navigate('/Profile')
+        } else {
+            navigate('/Checkout')
+        }
+        } catch(error){
+            console.log("Not Signed In. Please Signin",error)
+        }
+    }
 
     useEffect(()=>{
         const storeCartData = localStorage.getItem('MyCart');
@@ -82,20 +97,10 @@ export default function Cart(){
         }, 0)
     }
 
-
     useEffect(()=>{
         const newPrice = calculateTotal(carts);
         setTotal(newPrice)
     }, [carts])
-
-
-        if(loading){
-            return <p>Loading ...</p>
-        }
-        if(error){
-            return <p>Error: {error}</p>
-        }
-
 
     return(
         <>
@@ -116,7 +121,7 @@ export default function Cart(){
             <p className="total">Your Total: ${total}</p>
             <div>
                 <button className="btnBack" onClick={() =>{navigate('/')}}>Back</button>
-                <button className="btnCheck" onClick={()=>{navigate('/CheckOut')}}>CheckOut</button>
+                <button className="btnCheck" onClick={checkoutHandler}>CheckOut</button>
             </div>
         </div>
 

@@ -8,6 +8,7 @@ import ProductSingle from './components/Products/ProductSingle';
 import ProductAll from './components/Products/ProductAll'
 import CheckOut from './pages/CheckOut';
 import PaymentSuccess from './pages/PaymentSuccess';
+import Logout from './pages/Logout';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/ProductSingle/:id" element={<ProductSingle />} />
             <Route path="/ProductAll" element={<ProductAll />} />
             <Route path="/PaymentSuccess" element={<PaymentSuccess />} />
+            <Route path="/Logout" element={<Logout />} />
           </Routes>
         </div>
       </Router>
